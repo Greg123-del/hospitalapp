@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Hospitalapp</title>
+</head>
+<body>
+
+	<h1 class ="Text-principal">Controle de hospital</h1>
+	<form class="container" method = "post">	
+	<h3 class = "Principal-text">Nome</h3><input type = "text" value="" name="nome"/>
+		<div class="row">
+			<div class = "input-field col s6">
+				<h3 class = "Principal-text">Numero de registro</h3><input type = "number" value="" name="Num_regi"/>
+			</div>
+	<button type = "submit">Salvar</button>	
+	</form>
+
+</body>
+</html>

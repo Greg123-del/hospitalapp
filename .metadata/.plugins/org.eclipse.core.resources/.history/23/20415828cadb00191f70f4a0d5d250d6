@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<title>Hospitalapp</title>
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css"  media="screen,projection"/>
+</head>
+<body>
+
+	<h1 class ="Text-principal">Atendimento ao paciente</h1>
+	<form class="container" method = "posr">	
+	<h3 class = "Principal-text">Digite o registro do medico</h3><input type = "number" value="" name="num_regi"/>
+					
+	<button type = "reset" class="waves-effect waves-light btn">Atender</button>
+	<a href="/listarMedico" class="waves-effect waves-light btn">Medicos Liberados</a>
+	<a href="/" class="waves-effect waves-light btn">Voltar</a>
+	
+	
+	</form>
+	
+	<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Numero do registro</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="medicos : ${medicos}">
+			<td><span th:text="${medicos.nome}"></span></td>
+			<td><span th:text="${medicos.num_regi}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+</body>
+</html>

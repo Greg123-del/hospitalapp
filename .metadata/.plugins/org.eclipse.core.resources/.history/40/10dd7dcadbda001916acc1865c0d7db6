@@ -1,0 +1,32 @@
+package com.gregory.hospitalapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.gregory.hospitalapp.model.Paciente;
+import com.gregory.hospitalapp.repository.PacienteRepository;
+
+@Controller
+public class PacienteController {
+	@Autowired
+	private PacienteRepository er;
+	
+	@RequestMapping(value="/cadastrarPaciente", method=RequestMethod.GET)
+	public String inserirPaciente() {
+
+		return "pacientes/inserir";
+		
+	}
+	
+	@RequestMapping(value="/cadastrarPaciente", method=RequestMethod.POST)
+	public String inserirPaciente(Paciente paciente) {
+
+		er.save(paciente);
+		
+		return "redirect:/cadastrarPaciente";
+		
+	}
+
+}

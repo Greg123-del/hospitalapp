@@ -1,0 +1,84 @@
+package br.hospital.dao;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.hospital.dto.MedicoDto;
+import br.hospital.jdbc.Conection;
+import br.hospital.dto.PacienteDto;
+
+public class AtendimentoDAO {
+	
+	public int VerificarMedico(MedicoDto medicoDTO){
+		List<PacienteDto> verificarMedico = new ArrayList<PacienteDto>();
+		int num = 0;
+		try {
+			Connection connection = Conection.getInstance().getConnection();
+			String sql = "SELECT ID_MEDICO_FK FROM pacientes WHERE ID_MEDICO_FK = (SELECT ID_MEDICO FROM medicos WHERE num_regi = ?)";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, medicoDTO.getNum_regi());
+
+			ResultSet resultset = statement.executeQuery();
+			
+			while(resultset.next()) {
+				PacienteDto pacienteDTO = new PacienteDto();
+				pacienteDTO.setID_MEDICO(resultset.getInt("ID_MEDICO_FK"));
+				num = resultset.getInt("ID_MEDICO_FK");
+				verificarMedico.add(pacienteDTO);
+
+			}
+				
+			connection.close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+	
+
+	public void atender(MedicoDto medicoDTO){
+		
+		try {
+		Connection connection = Conection.getInstance().getConnection();
+		
+		String sql = "UPDATE pacientes SET ID_MEDICO_FK = (SELECT ID_MEDICO FROM medicos WHERE num_regi = ?) WHERE ID_MEDICO_FK IS NULL ORDER BY ID_PACIENTE LIMIT 1, UPDATE ";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+
+		
+		statement.setInt(1, medicoDTO.getNum_regi());
+		
+		statement.execute();
+		connection.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+	}	
+	public void liberarMedico(MedicoDto medicoDTO){
+		
+		try {
+		Connection connection = Conection.getInstance().getConnection();
+		
+		String sql = "DELETE FROM pacientes where ID_MEDICO_FK = (SELECT ID_MEDICO FROM medicos WHERE num_regi = ?)";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+
+		
+		statement.setInt(1, medicoDTO.getNum_regi());
+		
+		statement.execute();
+		connection.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	
+	}
+}

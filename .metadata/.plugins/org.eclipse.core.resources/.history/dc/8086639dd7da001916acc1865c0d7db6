@@ -1,0 +1,80 @@
+package com.gregory.hospitalapp.dao.interfaces;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.hospital.dto.MedicoDto;
+import br.hospital.jdbc.Conection;
+
+public class MedicoDAO {
+	
+	public void inserir(MedicoDto medicoDTO){
+		
+		try {
+		Connection connection = Conection.getInstance().getConnection();
+		
+		String sql = "INSERT INTO medicos(num_regi, Nome, qtdAtend) values(?, ?, ?)";
+		
+		PreparedStatement statement = connection.prepareStatement(sql);
+		
+		statement.setInt(1, medicoDTO.getNum_regi());
+		statement.setString(2, medicoDTO.getNome());
+		statement.setInt(3, medicoDTO.getQtdAtend());
+		
+		statement.execute();
+		connection.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void remover (int num_regi) {
+		try {
+			Connection connection = Conection.getInstance().getConnection();
+			
+			String sql = "DELETE FROM medicos WHERE num_regi = ?";
+
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, num_regi);
+			
+			statement.execute();
+			connection.close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public List<MedicoDto> listarMedicosLivres(){
+		List<MedicoDto> listarMedicos = new ArrayList<MedicoDto>();
+		try {
+			Connection connection = Conection.getInstance().getConnection();
+			
+			String sql = "SELECT * FROM medicos m left join pacientes p on m.ID_MEDICO = p.ID_MEDICO_FK where ID_MEDICO_FK is null";
+			
+			PreparedStatement statement = connection.prepareStatement(sql);
+			ResultSet resultset = statement.executeQuery();
+			
+			while(resultset.next()) {
+				MedicoDto medicoDTO = new MedicoDto();
+				medicoDTO.setID_MEDICO(resultset.getInt("num_regi"));
+				medicoDTO.setNome(resultset.getString("nome"));
+				
+				listarMedicos.add(medicoDTO);
+
+			}
+				
+			connection.close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listarMedicos;
+	
+	}
+}

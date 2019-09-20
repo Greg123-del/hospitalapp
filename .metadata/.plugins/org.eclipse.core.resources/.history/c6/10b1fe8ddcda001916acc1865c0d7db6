@@ -1,0 +1,16 @@
+package com.gregory.hospitalapp.dao.interfaces;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+
+import com.gregory.hospitalapp.model.*;
+
+
+public interface MedicoDao extends CrudRepository<Medico, Long> {
+	List<Medico> findAllByOrderByNumAsc();
+	
+	@Query("select m from Medico m where m.num_regi = ?")
+	Medico findByNumRegi(int num_regi);
+}
