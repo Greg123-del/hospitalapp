@@ -1,13 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
-<fullyQualifiedTypeName name="com.gregory.hospitalapp.dao.interfaces.MedicoDao"/>
-<fullyQualifiedTypeName name="com.gregory.hospitalapp.model.Medico"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-<fullyQualifiedTypeName name="com.gregory.hospitalapp.model.Paciente"/>
-<fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

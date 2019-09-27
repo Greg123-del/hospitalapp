@@ -1,0 +1,16 @@
+h1.Text-principal {
+    text-align: center;
+    padding-bottom: 90px;
+    bottom: -35px;
+    position: relative;
+}
+
+ul[_ngcontent-jce-c1] {
+    list-style-type: none;
+    overflow: hidden;
+    height: 6.5%;
+    position: fixed;
+    float: left;
+    width: 100%;
+    background-color: #213E8D;
+}

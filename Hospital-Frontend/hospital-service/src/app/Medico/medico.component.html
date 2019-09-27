@@ -1,0 +1,18 @@
+<div class="col-md-6">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>nome</th>
+      <th>numero de registro</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let medico of medicos">
+            <td>{{medicos.nome}}</td>
+            <td>{{medicos.num_regi}}</td>
+            <td><button class="btn btn-danger" (click)="deleteMedico(medico)"> Apagar medico </button></td>
+            </tr>
+    </tbody>
+      </table>
+  
+    </div>
