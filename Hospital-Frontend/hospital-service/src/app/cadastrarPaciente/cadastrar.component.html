@@ -1,0 +1,26 @@
+<div class="col-md-6">
+    <h2 class="text-center">Adicione um paciente</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Nome:</label>
+        <input [(ngModel)]="paciente.name" placeholder="Nome" name="nome" class="form-control" id="nome">
+      </div>
+    
+      <div class="form-group">
+        <label for="age">Idade:</label>
+        <input type= "number" [(ngModel)]="paciente.age" placeholder="Idade" name="Idade" class="form-control" id="Idade">
+      </div>
+
+      <div class="form-group">
+        <label for="temperature">Temperatura:</label>
+        <input type= "number" [(ngModel)]="paciente.temperature" placeholder="Temperatura" name="temperatura" class="form-control" id="temperatura">
+      </div>
+
+      <div class="form-group">
+        <label for="glicose">Glicose:</label>
+        <input type= "number" [(ngModel)]="paciente.glicose" placeholder="Glicose" name="glicose" class="form-control" id="glicose">
+      </div>
+
+      <button type="submit" class="btn btn-success" (click)="createPaciente()">Create</button>
+    </form>
+    </div>

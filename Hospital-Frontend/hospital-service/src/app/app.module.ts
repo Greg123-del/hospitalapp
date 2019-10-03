@@ -9,7 +9,15 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './Menu/menu.component';
 import { HomeComponent } from './Home/home.component';
 import { MedicoComponent } from './Medico/medico.component';
+import {PacienteComponent} from './Paciente/paciente.component'
 import { HttpClientModule } from '@angular/common/http';
+import { AddMedicoComponent } from './cadastrarMedico/cadastrar.component';
+import {AddPacienteComponent} from './cadastrarPaciente/cadastrar.component';
+import {LiberarComponent} from './liberarMedico/liberar.component';
+
+
+
+
 
 import {routing} from './app.routes';
 
@@ -21,9 +29,11 @@ import {routing} from './app.routes';
     AppComponent,
     MenuComponent,
     HomeComponent,
-    MedicoComponent
-    
-  
+    MedicoComponent,
+    PacienteComponent,
+    AddMedicoComponent,
+    AddPacienteComponent,
+    LiberarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,8 @@ import {routing} from './app.routes';
     HttpModule,
     FormsModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    
     
   ],
   providers: [],

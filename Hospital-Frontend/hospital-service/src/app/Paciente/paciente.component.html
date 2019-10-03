@@ -1,0 +1,21 @@
+<div class="col-md-6">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Temperatura</th>
+      <th>Glicose</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let paciente of pacientes">
+            <td>{{paciente.name}}</td>
+            <td>{{paciente.age}}</td>
+            <td>{{paciente.temperature}}</td>
+            <td>{{paciente.glicose}}</td>
+            </tr>
+    </tbody>
+      </table>
+  
+    </div>

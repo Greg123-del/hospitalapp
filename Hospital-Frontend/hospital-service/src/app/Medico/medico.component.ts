@@ -17,14 +17,25 @@ export class MedicoComponent implements OnInit {
   ngOnInit() {
     this.httpClientService.getMedicos().subscribe(
      response =>{this.medicos = response;}
-    ); 
-    console.log(this.medicos);    
+    );   
   }
 
-  deleteMedico(medicos: Medico): void {
-    this.httpClientService.deleteMedico(medicos)
-      .subscribe( data => {
-        this.medicos = this.medicos.filter(u => u !== medicos);
+  deleteMedico(userID: number): void {
+    this.httpClientService.deleteMedico(userID)
+      .subscribe( response => {
+        this.httpClientService.getMedicos().subscribe(
+          response =>{this.medicos = response;}
+         );   
       })
   };
+
+  Atender(num_regi: number): void{
+    this.httpClientService.updateAtender(num_regi)
+    .subscribe( response => {
+      this.httpClientService.getMedicos().subscribe(
+        response =>{this.medicos = response;}
+       );   
+    })
+};
+
 }

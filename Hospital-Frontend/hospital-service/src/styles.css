@@ -5,12 +5,27 @@ h1.Text-principal {
     position: relative;
 }
 
-ul[_ngcontent-jce-c1] {
+
+ul[_ngcontent-bfi-c1] {
     list-style-type: none;
-    overflow: hidden;
-    height: 6.5%;
+    margin: 0;
     position: fixed;
-    float: left;
-    width: 100%;
+    padding: 0;
+    height: 4.5%;
+    overflow: hidden;
     background-color: #213E8D;
+}
+
+button.btn.btn-danger {
+    background-color: #213e8d;
+}
+
+h2.text-center {
+    text-align: center;
+}
+
+.col-md-6 {
+    width: 90%;
+    position: relative;
+    left: 90px;
 }

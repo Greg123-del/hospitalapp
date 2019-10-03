@@ -1,0 +1,16 @@
+<div class="col-md-6">
+    <h2 class="text-center">Adicione um Médico</h2>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" [(ngModel)]="medico.nome" placeholder="Nome" name="nome" class="form-control" id="nome" required>
+      </div>
+    
+      <div class="form-group">
+        <label for="num_regi">Numero de Registro:</label>
+        <input type= "number" [(ngModel)]="medico.num_regi" placeholder="num_regi" name="num_regi" class="form-control" id="num_regi">
+      </div>
+    
+      <button type="submit" class="btn btn-success" (click)="createMedico()">Criar</button>
+    </form>
+    </div>
