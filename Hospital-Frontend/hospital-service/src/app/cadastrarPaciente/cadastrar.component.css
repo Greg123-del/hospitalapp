@@ -1,0 +1,21 @@
+.ng-invalid.ng-touched:not(form){
+    border: 1px red 
+}
+
+.alert.alert-danger {
+    width: 10%;
+    color: red;
+    border-radius: 83px;
+    text-align: center;
+    opacity: 65;
+}
+
+ /* label focus color */
+ .input-field input[type=text]:focus + label {
+    color: green;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid green;
+    box-shadow: 0 1px 0 0 green;
+  }

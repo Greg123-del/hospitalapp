@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientService, Medico } from '../services/http-client.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-medico',
@@ -13,11 +15,12 @@ export class AddMedicoComponent implements OnInit {
 
   medico: Medico = new Medico(this.g,"",this.h,this.t);
 
-  constructor(
+  constructor(private router: Router,
     private httpClientService: HttpClientService
   ) { }
 
   ngOnInit() {
+
   }
 
   createMedico(): void {

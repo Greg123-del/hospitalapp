@@ -1,0 +1,5 @@
+package com.gregory.hospitalapp;
+
+public class SecurityConfig {
+
+}

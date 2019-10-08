@@ -1,16 +1,21 @@
+<app-blog-menu></app-blog-menu>
 <div class="col-md-6">
     <h2 class="text-center">Adicione um Médico</h2>
-    <form>
+    <form #form="ngForm">
       <div class="form-group">
         <label for="nome">Nome:</label>
-        <input type="text" [(ngModel)]="medico.nome" placeholder="Nome" name="nome" class="form-control" id="nome" required>
+        <input type="text" [(ngModel)]="medico.nome" placeholder="Nome" name="nome" class="form-control" id="nome" required #nome="ngModel">
       </div>
-    
+      <div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">Campo Obrigatório</div>
+
+
       <div class="form-group">
         <label for="num_regi">Numero de Registro:</label>
-        <input type= "number" [(ngModel)]="medico.num_regi" placeholder="num_regi" name="num_regi" class="form-control" id="num_regi">
+        <input type= "number" [(ngModel)]="medico.num_regi" placeholder="num_regi" name="num_regi" class="form-control" id="num_regi" required #num_regi="ngModel">
       </div>
-    
-      <button type="submit" class="btn btn-success" (click)="createMedico()">Criar</button>
+      <div *ngIf="!num_regi.valid && num_regi.touched" class="alert alert-danger" role="alert">Campo Obrigatório</div>
+
+
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid" (click)="createMedico()">Criar</button>
     </form>
     </div>

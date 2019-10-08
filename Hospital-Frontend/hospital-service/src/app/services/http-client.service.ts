@@ -24,6 +24,15 @@ export class Paciente{
   
 }
 
+export class User{
+  constructor(
+    public user_id:number,
+    public login:string,
+    public password:number,
+  ) {}
+  
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,8 +42,9 @@ export class HttpClientService {
     private httpClient:HttpClient
   ) { 
      }
-//Methods \/\/\/; 
-     getMedicos()
+//************************************************************************************************************** */
+// Medicos methods
+  getMedicos()
   {
     return this.httpClient.get<Medico[]>('http://localhost:8080/medicos/listarMedico');
   }
@@ -56,7 +66,8 @@ export class HttpClientService {
   public createMedico(medico) {
     return this.httpClient.post<Medico>("http://localhost:8080/medicos/cadastrarMedico", medico);
   }
-
+//************************************************************************************************************** */
+// Pacientes methods
   getPaciente()
   {
     return this.httpClient.get<Paciente[]>('http://localhost:8080/pacientes/listarPaciente');
@@ -68,5 +79,13 @@ export class HttpClientService {
 
   public updateAtender(num_regi:number){
       return this.httpClient.put<Medico>("http://localhost:8080/pacientes/atenderPaciente", num_regi);
+    }
+//************************************************************************************************************** */
+// User methods
+    getUser(){
+      return this.httpClient.get<User[]>('http://localhost:8080/user/list');
+    }
+    public createUser(user) {
+      return this.httpClient.post<User>("http://localhost:8080/user", user);
     }
   }

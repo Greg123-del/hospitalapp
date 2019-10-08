@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddMedicoComponent } from './cadastrarMedico/cadastrar.component';
 import {AddPacienteComponent} from './cadastrarPaciente/cadastrar.component';
 import {LiberarComponent} from './liberarMedico/liberar.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -33,7 +36,10 @@ import {routing} from './app.routes';
     PacienteComponent,
     AddMedicoComponent,
     AddPacienteComponent,
-    LiberarComponent
+    LiberarComponent,
+    HeaderComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
