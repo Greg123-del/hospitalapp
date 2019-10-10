@@ -1,5 +1,0 @@
-package com.gregory.hospitalapp.dao.interfaces;
-
-public interface AtendimentoDao {
-
-}

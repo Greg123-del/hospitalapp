@@ -11,10 +11,9 @@
 
       <div class="form-group">
         <label for="num_regi">Numero de Registro:</label>
-        <input type= "number" [(ngModel)]="medico.num_regi" placeholder="num_regi" name="num_regi" class="form-control" id="num_regi" required #num_regi="ngModel">
+        <input [(ngModel)]="medico.num_regi" placeholder="num_regi" name="num_regi" class="form-control" id="num_regi" required #num_regi="ngModel" ngModel pattern="[0-9]*">
       </div>
       <div *ngIf="!num_regi.valid && num_regi.touched" class="alert alert-danger" role="alert">Campo Obrigatório</div>
-
 
       <button type="submit" class="btn btn-success" [disabled]="!form.valid" (click)="createMedico()">Criar</button>
     </form>

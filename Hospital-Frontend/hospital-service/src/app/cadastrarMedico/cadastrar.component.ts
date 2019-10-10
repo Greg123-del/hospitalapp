@@ -23,13 +23,14 @@ export class AddMedicoComponent implements OnInit {
 
   }
 
-  createMedico(): void {
+  createMedico(medico): void {
     this.httpClientService.createMedico(this.medico)
         .subscribe( data => {
-          alert("Successfully created doctor");
-          
-        });
+          if(medico!=null){
+          alert("Error , doctor exists");
+          }else{
+            alert("Error , doctor exists");
 
-  };
-
-}
+      }});
+    } 
+  }

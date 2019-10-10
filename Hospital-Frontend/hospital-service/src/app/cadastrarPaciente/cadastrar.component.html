@@ -22,7 +22,7 @@
 
       <div class="form-group">
         <label for="glicose">Glicose:</label>
-        <input type= "number" [(ngModel)]="paciente.glicose" ngModel maxlength="3" placeholder="Glicose" name="glicose" class="form-control" id="glicose" required #glicose="ngModel">
+        <input [(ngModel)]="paciente.glicose" ngModel maxlength="3" placeholder="Glicose" name="glicose" class="form-control" id="glicose" required #glicose="ngModel">
       </div>
       <div *ngIf="!glicose.valid && glicose.touched" class="alert alert-danger" role="alert">Campo Obrigatório</div>
 
